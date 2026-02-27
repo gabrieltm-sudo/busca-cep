@@ -26,7 +26,7 @@ Um aplicativo web moderno e responsivo desenvolvido com React e Vite, integrado 
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/gabriel-sudo/busca-cep.git
+git clone https://github.com/gabrieltm-sudo/busca-cep.git
 ```
 
 2. Instale as dependências:
