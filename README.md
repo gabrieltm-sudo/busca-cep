@@ -1,16 +1,48 @@
-# React + Vite
+# Sistema de Busca CEP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um aplicativo web moderno e responsivo desenvolvido com React e Vite, integrado à API do ViaCEP para localização de endereços e códigos postais em tempo real.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Busca por CEP**: Informe o código postal para obter o endereço completo instantaneamente.
 
-## React Compiler
+- **Busca por Endereço**: Encontre CEPs filtrando por Estado (UF), Cidade e Nome da Rua.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Interface Inteligente**: Alternância simples entre modos de busca com feedback visual.
 
-## Expanding the ESLint configuration
+- **Tratamento de Erros**: Validação de dados e mensagens amigáveis para CEPs não encontrados ou falhas de conexão.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Design Premium**: Interface em modo escuro (Dark Mode) construída com Tailwind CSS v4.
+
+## Tecnologias Utilizadas
+
+- React (com Vite para alta performance)
+- Tailwind CSS v4 (estilização moderna e utilitária)
+- Lucide React (ícones vetoriais)
+- React UseAnimations (animações de carregamento fluidas)
+- ViaCEP API (serviço de dados postais)
+
+## Como rodar o projeto
+
+1. Clone este repositório:
+```bash
+git clone https://github.com/gabriel-sudo/busca-cep.git
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+
+## Demonstração
+
+![Sistema de Busca CEP](public/images/demonstracao-cep.png)
+
+## Autor
+
+Desenvolvido por Gabriel Torres Machado — Estudante de Engenharia de Computação na UNIPAMPA (Bagé, RS).
