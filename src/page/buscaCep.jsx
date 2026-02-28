@@ -1,4 +1,4 @@
-import { FileCheck } from "lucide-react";
+import { FileCheck, Github } from "lucide-react";
 import React from "react";
 import { useState } from "react";
 
@@ -28,6 +28,8 @@ const BuscaCep = () => {
 
     const [dados, setDados] = useState(null);
 
+    const [error, setError] = useState(false);
+
     const handleChange = (e) => {
         e.preventDefault();
         setEndereco({
@@ -44,6 +46,7 @@ const BuscaCep = () => {
     const handleSubmitEndereco = async (e) => {
         e.preventDefault();
         try {
+            setError(false);
             setLoading(true);
             const resposta = await fetch(`https://viacep.com.br/ws/${endereco.estado}/${endereco.cidade}/${endereco.rua}/json/`);
             const respostaJson = await resposta.json();
@@ -51,6 +54,7 @@ const BuscaCep = () => {
             console.table(respostaJson);
         } catch (error) {
             console.error('CEP não encontrado: ', error);
+            setError(true);
         } finally {
             setLoading(false);
             
@@ -60,6 +64,7 @@ const BuscaCep = () => {
     const handleSubmitCep = async (e) => {
         e.preventDefault();
         try {
+            setError(false);
             console.log(`Você digitou: ${cep}`);
             setLoading(true);
             const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
@@ -67,9 +72,9 @@ const BuscaCep = () => {
             console.table(dados);
         } catch(error) {
             console.error('Endereço não encontrado: ', error);
+            setError(true);
         } finally{
             setLoading(false);
-            setCep('');
         }
     }
 
@@ -172,6 +177,12 @@ const BuscaCep = () => {
                         </div>
                     )}
 
+                    {error && (
+                        <div className="bg-red-600 text-white p-4 rounded-lg">
+                            <p className="font-medium">Erro: Não foi possível encontrar o resultado. Verifique os dados e tente novamente.</p>
+                        </div>
+                    )}
+
                     {dados && (
                         <div className="mt-6">
                             <div className="flex items-center gap-2 mb-6">
@@ -253,6 +264,13 @@ const BuscaCep = () => {
                     )}
                 </div>
             )}
+
+            <div>
+                <div className=" flex justify-center text-center mt-12 text-zinc-500 text-sm">
+                    <p>Desenvolvido por Gabriel Torres Machado</p>
+                    <a href="https://github.com/gabrieltm-sudo" target="_blank" rel="noopener noreferrer" className="ml-3 w-5 text-white hover:text-blue-500"><Github /></a>
+                </div>
+            </div>
             </div>
         </div>
     );
